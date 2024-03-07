@@ -6,10 +6,10 @@ using TMPro;
 
 public class NumberAroundCircle : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float radius;
     void Start()
     {
-        float radius = 150;
+        //float radius = 150;
         Vector2 sz = new Vector2(62, 40);
 
         float angle = 20;

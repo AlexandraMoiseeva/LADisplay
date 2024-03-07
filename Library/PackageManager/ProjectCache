@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638437127992978881
-    m_Hash: 2364299503
+      ticks: 638442098520835839
+    m_Hash: 810570127
   m_LockFileStatus:
     m_FilePath: D:/Unity/LADisplay/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638437127993422437
-    m_Hash: 1057000011
+      ticks: 638442098522411641
+    m_Hash: 3816659740
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -254,6 +254,108 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
+- packageId: com.unity.purchasing.udp@2.2.5
+  testable: 0
+  isDirectDependency: 1
+  version: 2.2.5
+  source: 1
+  resolvedPath: D:\Unity\LADisplay\Library\PackageCache\com.unity.purchasing.udp@2.2.5
+  assetPath: Packages/com.unity.purchasing.udp
+  name: com.unity.purchasing.udp
+  displayName: Unity Distribution Portal
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: 'This is the package for the Unity Distribution Portal, a platform
+    that makes it easier to build for, and submit to multiple Android app stores.
+
+
+    This
+    package is for Android games only. It lets you implement a single set of methods
+    that can address the In-App Purchases of all the app stores accessible via UDP.
+    Please see our documentation for a more thorough overview of the package.
+
+
+    Once
+    your APK file is built with UDP, upload it to the UDP Console and submit your
+    game to the app stores of your choice.'
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.2.6-preview.3
+    - 1.0.0-preview.1
+    - 1.0.3-preview.2
+    - 1.0.3-preview.3
+    - 1.1.0-preview.1
+    - 1.1.3-preview.1
+    - 1.1.3-preview.2
+    - 1.1.3-preview.4
+    - 1.1.3-preview.5
+    - 1.1.3-preview.7
+    - 1.2.0-preview.2
+    - 1.2.0-preview.3
+    - 1.2.0-preview.4
+    - 1.2.0-preview.5
+    - 1.2.0-preview.6
+    - 1.2.0-preview.7
+    - 1.2.0
+    - 1.3.0-preview.1
+    - 1.3.0-preview.2
+    - 1.3.0
+    - 1.3.1-preview.1
+    - 2.0.0-preview.1
+    - 2.0.0
+    - 2.0.1-preview.1
+    - 2.0.2-preview.1
+    - 2.1.0-pre.2
+    - 2.1.0-pre.3
+    - 2.1.0
+    - 2.1.4
+    - 2.1.6
+    - 2.2.2
+    - 2.2.3
+    - 2.2.4
+    - 2.2.5
+    compatible:
+    - 2.2.5
+    recommended: 2.2.5
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - android
+  - purchasing
+  - iap
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637825150430000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.purchasing.udp.git
+    revision: d7ad32927653690f871edeec33619e45c6920df3
+    path: 
+  unityLifecycle:
+    version: 2.2.5
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
 - packageId: com.unity.textmeshpro@3.0.8
   testable: 0
   isDirectDependency: 1
@@ -383,6 +485,7 @@ m_ResolvedPackages:
     - 3.2.0-pre.6
     - 3.2.0-pre.7
     - 3.2.0-pre.8
+    - 3.2.0-pre.9
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     compatible:
@@ -397,6 +500,7 @@ m_ResolvedPackages:
     - 3.2.0-pre.6
     - 3.2.0-pre.7
     - 3.2.0-pre.8
+    - 3.2.0-pre.9
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     recommended: 3.0.8

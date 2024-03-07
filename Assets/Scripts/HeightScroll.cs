@@ -18,7 +18,7 @@ public class HeightScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        heightbar.value = amount/100;
+        heightbar.value = amount/100 * (heightbar.maxValue - heightbar.minValue);
         if (direct == true)
             amount += 1;
         else
