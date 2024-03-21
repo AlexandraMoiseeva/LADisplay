@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Collections.Specialized;
 using System.Globalization;
+using UnityEngine.UIElements;
 
 public class UDP_TRANSFORM : MonoBehaviour
 {
@@ -75,14 +76,25 @@ public class UDP_TRANSFORM : MonoBehaviour
             string[] messageParts = str.Split(',');
             
             // Position
-            transformPosition[0] = float.Parse(messageParts[0], CultureInfo.InvariantCulture);
-            transformPosition[1] = float.Parse(messageParts[1], CultureInfo.InvariantCulture);
-            transformPosition[2] = float.Parse(messageParts[2], CultureInfo.InvariantCulture);
+            //transformPosition[0] = float.Parse(messageParts[0], CultureInfo.InvariantCulture);
+            //transformPosition[1] = float.Parse(messageParts[1], CultureInfo.InvariantCulture);
+            //transformPosition[2] = float.Parse(messageParts[2], CultureInfo.InvariantCulture);
 
             // Orientation
-            transformRotation[0] = float.Parse(messageParts[3], CultureInfo.InvariantCulture);
-            transformRotation[1] = float.Parse(messageParts[4], CultureInfo.InvariantCulture);
-            transformRotation[2] = float.Parse(messageParts[5], CultureInfo.InvariantCulture);
+            //transformRotation[0] = float.Parse(messageParts[3], CultureInfo.InvariantCulture);
+            //transformRotation[1] = float.Parse(messageParts[4], CultureInfo.InvariantCulture);
+            //transformRotation[2] = float.Parse(messageParts[5], CultureInfo.InvariantCulture);
+
+            Data.positionX = float.Parse(messageParts[0], CultureInfo.InvariantCulture);
+            Data.positionY = float.Parse(messageParts[1], CultureInfo.InvariantCulture);
+            Data.positionZ = float.Parse(messageParts[2], CultureInfo.InvariantCulture);
+
+            Data.velocityX = float.Parse(messageParts[3], CultureInfo.InvariantCulture);
+            Data.velocityY = float.Parse(messageParts[4], CultureInfo.InvariantCulture);
+            Data.velocityZ = float.Parse(messageParts[5], CultureInfo.InvariantCulture);
+
+            Data.angleAttack = float.Parse(messageParts[6], CultureInfo.InvariantCulture);
+            Data.sidingAttack = float.Parse(messageParts[7], CultureInfo.InvariantCulture);
         }
     }
 }

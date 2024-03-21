@@ -362,7 +362,6 @@
 "Assets/Scripts/CompassBar.cs"
 "Assets/Scripts/HeightScroll.cs"
 "Assets/Scripts/NumberAroundCircle.cs"
-"Assets/Scripts/PlaneMotion.cs"
 "Assets/Scripts/RotateAround.cs"
 "Assets/Scripts/Static.cs"
 "Assets/Scripts/TextSlider.cs"

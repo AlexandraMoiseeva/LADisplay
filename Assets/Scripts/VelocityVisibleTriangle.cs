@@ -7,32 +7,23 @@ using TMPro;
 public class VelocityVisibleTriangle : MonoBehaviour
 {
     public GameObject[] triangles;
-    private int velocity;
-    private bool up;
+    int velocity;
     public TextMeshProUGUI text;
 
     // Start is called before the first frame update
     void Start()
     {
         velocity = 0;
-        up = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (up)
-        {
-            velocity += 1;
-            if (velocity == 6)
-                up = false;
-        }
-        else
-        {
-            velocity -= 1;
-            if (velocity == -6)
-                up = true;
-        }
+        velocity = (int)Data.velocityZ;
+        if (velocity > 6)
+            velocity = 6;
+        if (velocity < -6)
+            velocity = -6;
         text.text = velocity.ToString();
         for (int i = 0; i < triangles.Length; i++)
         {
