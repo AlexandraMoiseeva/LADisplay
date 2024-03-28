@@ -19,7 +19,7 @@ public class VelocityVisibleTriangle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        velocity = (int)Data.velocityZ;
+        velocity = (int)Data.velocityY;
         if (velocity > 6)
             velocity = 6;
         if (velocity < -6)

@@ -19,6 +19,10 @@ public static class Data
     static public float angleAttack;
     static public float sidingAttack;
 
+    static public float roll;
+    static public float yaw;
+    static public float pitch;
+
     public static void Load()
     {
         positionX = PlayerPrefs.GetFloat("positionX", 0);
@@ -31,6 +35,10 @@ public static class Data
 
         angleAttack = PlayerPrefs.GetFloat("angleAttack", 0);
         sidingAttack = PlayerPrefs.GetFloat("sidingAttack", 0);
+
+        roll = PlayerPrefs.GetFloat("roll", 0);
+        yaw = PlayerPrefs.GetFloat("yaw", 0);
+        pitch = PlayerPrefs.GetFloat("pitch", 0);
     }
     public static void Drop()
     {
@@ -44,6 +52,10 @@ public static class Data
 
         PlayerPrefs.DeleteKey("angleAttack");
         PlayerPrefs.DeleteKey("sidingAttack");
+
+        PlayerPrefs.DeleteKey("roll");
+        PlayerPrefs.DeleteKey("yaw");
+        PlayerPrefs.DeleteKey("pitch");
     }
 
 }

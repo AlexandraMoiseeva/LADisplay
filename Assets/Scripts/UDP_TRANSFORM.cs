@@ -95,6 +95,10 @@ public class UDP_TRANSFORM : MonoBehaviour
 
             Data.angleAttack = float.Parse(messageParts[6], CultureInfo.InvariantCulture);
             Data.sidingAttack = float.Parse(messageParts[7], CultureInfo.InvariantCulture);
+
+            Data.roll = float.Parse(messageParts[8], CultureInfo.InvariantCulture);
+            Data.yaw = float.Parse(messageParts[9], CultureInfo.InvariantCulture);
+            Data.pitch = float.Parse(messageParts[10], CultureInfo.InvariantCulture);
         }
     }
 }
