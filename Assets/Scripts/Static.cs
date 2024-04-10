@@ -5,9 +5,16 @@ using System.Net;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.tvOS;
+using Unity.VisualScripting;
+
 
 public static class Data
 {
+    static public Color ourGreen = new Color(40.0f / 255, 224.0f / 255, 0.0f / 255);
+    static public Color ourYellow = new Color(255.0f / 215, 224.0f / 255, 0.0f / 255);
+    static public Color ourOrange = new Color(255.0f / 255, 121.0f / 255, 0.0f / 255);
+    static public Color ourRed = new Color(230.0f / 255, 0.0f / 255, 0.0f / 255);
+
     static public float positionX;
     static public float positionY;
     static public float positionZ;

@@ -78,7 +78,7 @@ public class HeightScroll : MonoBehaviour
         targetSideAttackDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
 
         if (Data.velocityX != 0 & Data.velocityY != 0)
-            GameObject.Find("Pitch").transform.position += new Vector3(0, 165 / 40 * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+            GameObject.Find("Pitch").transform.position += new Vector3(0, 165 / 90 * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
 
         angleAttackInit = Data.angleAttack;
         angleSideInit = Data.sidingAttack;
