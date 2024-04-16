@@ -22,6 +22,9 @@ public class HeightScroll : MonoBehaviour
     public GameObject targetDegCircle;
     public GameObject targetSideAttackDegCircle;
 
+    public GameObject rollButton;
+    public GameObject pitchButtton;
+
     private float angleAttackInit;
     private float angleSideInit;
 
@@ -85,6 +88,9 @@ public class HeightScroll : MonoBehaviour
         rollInit = Data.roll;
         pitchInit = Data.pitch;
         yawInit = Data.yaw;
+
+        rollButton.GetComponent<TMPro.TextMeshProUGUI>().text = (rollInit / System.MathF.PI * 180.0f).ToString();
+        pitchButtton.GetComponent<TMPro.TextMeshProUGUI>().text = (pitchInit / System.MathF.PI * 180.0f).ToString();
 
         GameObject.Find("SidingAtack/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.sidingAttack / System.MathF.PI * 180.0f, 2).ToString();
         GameObject.Find("AangleAtack/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.angleAttack / System.MathF.PI * 180.0f, 2).ToString();
