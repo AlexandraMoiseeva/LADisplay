@@ -76,9 +76,9 @@ public class UDP_TRANSFORM : MonoBehaviour
             string[] messageParts = str.Split(',');
             
             // Position
-            //transformPosition[0] = float.Parse(messageParts[0], CultureInfo.InvariantCulture);
-            //transformPosition[1] = float.Parse(messageParts[1], CultureInfo.InvariantCulture);
-            //transformPosition[2] = float.Parse(messageParts[2], CultureInfo.InvariantCulture);
+            transformPosition[0] = float.Parse(messageParts[0], CultureInfo.InvariantCulture);
+            transformPosition[1] = float.Parse(messageParts[1], CultureInfo.InvariantCulture);
+            transformPosition[2] = float.Parse(messageParts[2], CultureInfo.InvariantCulture);
 
             // Orientation
             //transformRotation[0] = float.Parse(messageParts[3], CultureInfo.InvariantCulture);

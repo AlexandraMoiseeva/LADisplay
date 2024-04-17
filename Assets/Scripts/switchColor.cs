@@ -54,7 +54,7 @@ public class switchColor : MonoBehaviour
             heightVelocity.GetComponent<Image>().color = new Color(Data.ourRed.r, Data.ourRed.g, Data.ourRed.b, 135.0f / 255);
         else
             if (System.MathF.Abs(date3) > 12)
-                heightVelocity.GetComponent<Image>().color = new Color(Data.ourRed.r, Data.ourRed.g, Data.ourRed.b, 135.0f / 255);
+                heightVelocity.GetComponent<Image>().color = new Color(Data.ourOrange.r, Data.ourOrange.g, Data.ourOrange.b, 135.0f / 255);
             else
                 if (System.MathF.Abs(date3) > 0)
                     heightVelocity.GetComponent<Image>().color = new Color(Data.ourGreen.r, Data.ourGreen.g, Data.ourGreen.b, 135.0f / 255);

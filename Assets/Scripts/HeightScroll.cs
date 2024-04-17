@@ -25,6 +25,8 @@ public class HeightScroll : MonoBehaviour
     public GameObject rollButton;
     public GameObject pitchButtton;
 
+    //public GameObject pitchScale;
+
     private float angleAttackInit;
     private float angleSideInit;
 
@@ -34,14 +36,14 @@ public class HeightScroll : MonoBehaviour
 
     void Start()
     {
-        angleAttackInit = 0;
-        angleSideInit = 0;
-        rollInit = 0;
-        pitchInit = 0;
-        yawInit = 0;
+        angleAttackInit = 0.0f;
+        angleSideInit = 0.0f;
+        rollInit = 0.0f;
+        pitchInit = 0.0f;
+        yawInit = 0.0f;
 
-        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 90);
-        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90);
+        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 90.0f);
+        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90.0f);
     }
 
     // Update is called once per frame
@@ -74,14 +76,17 @@ public class HeightScroll : MonoBehaviour
 
         GameObject.Find("ValueBar/Mark/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(velocity, 2).ToString();
 
-        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 360 / 40 * (-Data.angleAttack + angleAttackInit) / System.MathF.PI * 180.0f);
-        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 360 / 40 * (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
-        targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (Data.roll - rollInit) / System.MathF.PI * 180.0f);
+        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-Data.angleAttack + angleAttackInit) / System.MathF.PI * 180.0f);
+        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
+        targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-Data.roll + rollInit) / System.MathF.PI * 180.0f);
         targetDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.yaw + yawInit) / System.MathF.PI * 180.0f);
         targetSideAttackDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
 
         if (Data.velocityX != 0 & Data.velocityY != 0)
-            GameObject.Find("Pitch").transform.position += new Vector3(0, 165 / 90 * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+        {
+            GameObject.Find("Pitch").transform.position += new Vector3(0, 165.0f / 90.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+            GameObject.Find("PitchScale").transform.position += new Vector3(0, 165.0f / 90.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+        }
 
         angleAttackInit = Data.angleAttack;
         angleSideInit = Data.sidingAttack;
@@ -89,8 +94,8 @@ public class HeightScroll : MonoBehaviour
         pitchInit = Data.pitch;
         yawInit = Data.yaw;
 
-        rollButton.GetComponent<TMPro.TextMeshProUGUI>().text = (rollInit / System.MathF.PI * 180.0f).ToString();
-        pitchButtton.GetComponent<TMPro.TextMeshProUGUI>().text = (pitchInit / System.MathF.PI * 180.0f).ToString();
+        rollButton.GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round((rollInit / System.MathF.PI * 180.0f), 2).ToString();
+        pitchButtton.GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round((pitchInit / System.MathF.PI * 180.0f), 2).ToString();
 
         GameObject.Find("SidingAtack/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.sidingAttack / System.MathF.PI * 180.0f, 2).ToString();
         GameObject.Find("AangleAtack/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.angleAttack / System.MathF.PI * 180.0f, 2).ToString();
