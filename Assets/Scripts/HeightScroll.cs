@@ -85,7 +85,7 @@ public class HeightScroll : MonoBehaviour
         if (Data.velocityX != 0 & Data.velocityY != 0)
         {
             GameObject.Find("Pitch").transform.position += new Vector3(0, 165.0f / 90.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
-            GameObject.Find("PitchScale").transform.position += new Vector3(0, 165.0f / 90.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+            //GameObject.Find("PitchScale").transform.position += new Vector3(0, 165.0f / 90.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
         }
 
         angleAttackInit = Data.angleAttack;
