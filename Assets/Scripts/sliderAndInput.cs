@@ -22,6 +22,7 @@ public class sliderAndInput : MonoBehaviour
     {
         mySlider.value = Data.alpha;
         myField.text = Data.alpha.ToString();
+        Data.Save();
     }
 
     public void onSliderValueChanged()

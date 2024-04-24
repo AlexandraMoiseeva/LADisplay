@@ -17,6 +17,7 @@ public class HeightScroll : MonoBehaviour
 
     public GameObject centerAeroHor;
     public GameObject targetAeroHor;
+    public GameObject targetAeroHorCircle;
 
     public GameObject centerDegCircle;
     public GameObject targetDegCircle;
@@ -36,6 +37,8 @@ public class HeightScroll : MonoBehaviour
 
     void Start()
     {
+        Data.Load();
+
         angleAttackInit = 0.0f;
         angleSideInit = 0.0f;
         rollInit = 0.0f;
@@ -79,6 +82,7 @@ public class HeightScroll : MonoBehaviour
         targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-Data.angleAttack + angleAttackInit) / System.MathF.PI * 180.0f);
         targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
         targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-Data.roll + rollInit) / System.MathF.PI * 180.0f);
+        targetAeroHorCircle.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-Data.roll + rollInit) / System.MathF.PI * 180.0f);
         targetDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.yaw + yawInit) / System.MathF.PI * 180.0f);
         targetSideAttackDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
 
@@ -97,7 +101,7 @@ public class HeightScroll : MonoBehaviour
         rollButton.GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round((rollInit / System.MathF.PI * 180.0f), 2).ToString();
         pitchButtton.GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round((pitchInit / System.MathF.PI * 180.0f), 2).ToString();
 
-        GameObject.Find("SidingAtack/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.sidingAttack / System.MathF.PI * 180.0f, 2).ToString();
-        GameObject.Find("AangleAtack/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.angleAttack / System.MathF.PI * 180.0f, 2).ToString();
+        GameObject.Find("Text (TMP) siding").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.sidingAttack / System.MathF.PI * 180.0f, 2).ToString();
+        GameObject.Find("Text (TMP) attack").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.angleAttack / System.MathF.PI * 180.0f, 2).ToString();
     }
 }

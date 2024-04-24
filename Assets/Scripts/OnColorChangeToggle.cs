@@ -29,23 +29,27 @@ public class OnColorChangeToggle : MonoBehaviour
         if (green.color == Color.red)
             green.SetColor(Data.ourGreen);
         Data.ourGreen = green.color;
+        Data.Save();
     }
     public void ChangeYellow()
     {
         if (yellow.color == Color.red)
             yellow.SetColor(Data.ourYellow);
         Data.ourYellow = yellow.color;
+        Data.Save();
     }
     public void ChangeOrange()
     {
         if (orange.color == Color.red)
             orange.SetColor(Data.ourOrange);
         Data.ourOrange = orange.color;
+        Data.Save();
     }
     public void Changered()
     {
         if (red.color == Color.red)
             red.SetColor(Data.ourRed);
         Data.ourRed = red.color;
+        Data.Save();
     }
 }

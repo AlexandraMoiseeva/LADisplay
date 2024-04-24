@@ -33,6 +33,13 @@ public class warningScript : MonoBehaviour
         if (warnings[1].GetComponent<Image>().color.r != Data.ourGreen.r)
             ++sizeWarningShow;
 
+        warnings[4].GetComponent<Image>().color = System.MathF.Sqrt(Data.velocityX * Data.velocityX +
+            Data.velocityY * Data.velocityY + Data.velocityZ * Data.velocityZ) < 10 ? Data.ourRed :
+            System.MathF.Sqrt(Data.velocityX * Data.velocityX +
+            Data.velocityY * Data.velocityY + Data.velocityZ * Data.velocityZ) < 15 ? Data.ourOrange : 
+            System.MathF.Sqrt(Data.velocityX * Data.velocityX +
+            Data.velocityY * Data.velocityY + Data.velocityZ * Data.velocityZ) < 20 ? Data.ourYellow : Data.ourGreen;
+
         warnings[2].GetComponent<Image>().color = System.Math.Abs(VelocityVisibleTriangle.velocity) < 5 ? Data.ourGreen :
             System.Math.Abs(VelocityVisibleTriangle.velocity) < 6 ? Data.ourOrange : Data.ourRed;
 
@@ -65,7 +72,7 @@ public class warningScript : MonoBehaviour
                         break;
                     case 1:
                         if (warnings[i].GetComponent<Image>().color.r == Data.ourYellow.r)
-                            GameObject.Find("GameObject/Image/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text
+                            GameObject.Find("GameObject (2)/Image/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text
                                 = "угл скольжения";
                         if (warnings[i].GetComponent<Image>().color.r == Data.ourOrange.r)
                             GameObject.Find("GameObject (2)/Image/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text
@@ -88,8 +95,20 @@ public class warningScript : MonoBehaviour
                                 = "высота";
                         if (warnings[i].GetComponent<Image>().color.r == Data.ourRed.r)
                             GameObject.Find("GameObject (3)/Image/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text
-                                = "go to hell!";
+                                = "земля";
                         break;
+                    case 4:
+                        if (warnings[i].GetComponent<Image>().color.r == Data.ourYellow.r)
+                            GameObject.Find("GameObject (4)/Image/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text
+                                = "скорость";
+                        if (warnings[i].GetComponent<Image>().color.r == Data.ourOrange.r)
+                            GameObject.Find("GameObject (4)/Image/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text
+                                = "скорость";
+                        if (warnings[i].GetComponent<Image>().color.r == Data.ourRed.r)
+                            GameObject.Find("GameObject (4)/Image/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text
+                                = "скорость";
+                        break;
+
                 }
             }
             else
