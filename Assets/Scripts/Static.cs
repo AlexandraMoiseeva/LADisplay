@@ -15,6 +15,8 @@ public static class Data
     static public Color ourOrange = new Color(255.0f / 255, 121.0f / 255, 0.0f / 255);
     static public Color ourRed = new Color(230.0f / 255, 0.0f / 255, 0.0f / 255);
 
+    static public int alpha = 150;
+
     static public float positionX;
     static public float positionY;
     static public float positionZ;
