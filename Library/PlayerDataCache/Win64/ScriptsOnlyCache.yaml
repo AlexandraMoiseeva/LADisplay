@@ -13,9 +13,12 @@ ScriptsOnlyBuild:
     - ToggleVisible
     - UDP_TRANSFORM
     - VelocityVisibleTriangle
+    - backgroundBar
+    - exitAndRetry
     - sliderAndInput
     - switchColor
     - warningScript
+    - welcome
     Unity.PlasticSCM.Editor.dll:
     - Unity.PlasticSCM.Editor.PlasticWindow
     Unity.Rider.Editor.dll:
@@ -37,8 +40,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -59,6 +64,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     - UnityEngine.UI.Toggle
@@ -106,6 +112,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.FontData
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
     - UnityEngine.UI.Toggle/ToggleEvent
@@ -155,6 +163,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: sliderAndInput
     methodName: onFieldValueChanged
+  - assembly: Assembly-CSharp
+    fullTypeName: exitAndRetry
+    methodName: Repeat
+  - assembly: Assembly-CSharp
+    fullTypeName: exitAndRetry
+    methodName: Exit
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -175,8 +189,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
     - Class: 74
@@ -196,79 +208,77 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16610}
+      Script: {instanceID: 16676}
     - Class: 114
-      Script: {instanceID: 16678}
+      Script: {instanceID: 16800}
     - Class: 114
-      Script: {instanceID: 16802}
+      Script: {instanceID: 17386}
     - Class: 114
-      Script: {instanceID: 17262}
+      Script: {instanceID: 17680}
     - Class: 114
-      Script: {instanceID: 17388}
+      Script: {instanceID: 17882}
     - Class: 114
-      Script: {instanceID: 17646}
+      Script: {instanceID: 18172}
     - Class: 114
-      Script: {instanceID: 17684}
+      Script: {instanceID: 18928}
     - Class: 114
-      Script: {instanceID: 17886}
+      Script: {instanceID: 19152}
     - Class: 114
-      Script: {instanceID: 18176}
+      Script: {instanceID: 19930}
     - Class: 114
-      Script: {instanceID: 18932}
+      Script: {instanceID: 19990}
     - Class: 114
-      Script: {instanceID: 19058}
+      Script: {instanceID: 20040}
     - Class: 114
-      Script: {instanceID: 19156}
+      Script: {instanceID: 20110}
     - Class: 114
-      Script: {instanceID: 19170}
+      Script: {instanceID: 20354}
     - Class: 114
-      Script: {instanceID: 19420}
+      Script: {instanceID: 20648}
     - Class: 114
-      Script: {instanceID: 19934}
+      Script: {instanceID: 20796}
     - Class: 114
-      Script: {instanceID: 19994}
+      Script: {instanceID: 21112}
     - Class: 114
-      Script: {instanceID: 20044}
+      Script: {instanceID: 21122}
     - Class: 114
-      Script: {instanceID: 20114}
+      Script: {instanceID: 21470}
     - Class: 114
-      Script: {instanceID: 20358}
+      Script: {instanceID: 21822}
     - Class: 114
-      Script: {instanceID: 20652}
-    - Class: 114
-      Script: {instanceID: 20800}
-    - Class: 114
-      Script: {instanceID: 21116}
-    - Class: 114
-      Script: {instanceID: 21474}
-    - Class: 114
-      Script: {instanceID: 21826}
+      Script: {instanceID: 22150}
     - Class: 114
       Script: {instanceID: 23158}
     - Class: 114
-      Script: {instanceID: 23186}
+      Script: {instanceID: 23166}
     - Class: 114
       Script: {instanceID: 23218}
     - Class: 114
-      Script: {instanceID: 23228}
+      Script: {instanceID: 23222}
     - Class: 114
-      Script: {instanceID: 23248}
+      Script: {instanceID: 23226}
     - Class: 114
-      Script: {instanceID: 23272}
+      Script: {instanceID: 23234}
     - Class: 114
-      Script: {instanceID: 23284}
+      Script: {instanceID: 23254}
     - Class: 114
-      Script: {instanceID: 23304}
+      Script: {instanceID: 23274}
     - Class: 114
-      Script: {instanceID: 23312}
+      Script: {instanceID: 23286}
     - Class: 114
-      Script: {instanceID: 23324}
+      Script: {instanceID: 23290}
     - Class: 114
-      Script: {instanceID: 23328}
+      Script: {instanceID: 23310}
     - Class: 114
-      Script: {instanceID: 23332}
+      Script: {instanceID: 23318}
     - Class: 114
-      Script: {instanceID: 122122}
+      Script: {instanceID: 23330}
+    - Class: 114
+      Script: {instanceID: 23334}
+    - Class: 114
+      Script: {instanceID: 23338}
+    - Class: 114
+      Script: {instanceID: 101352}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -285,13 +295,74 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    Assets/Scenes/Welcome.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 16676}
+    - Class: 114
+      Script: {instanceID: 17260}
+    - Class: 114
+      Script: {instanceID: 17680}
+    - Class: 114
+      Script: {instanceID: 17882}
+    - Class: 114
+      Script: {instanceID: 19054}
+    - Class: 114
+      Script: {instanceID: 19166}
+    - Class: 114
+      Script: {instanceID: 19416}
+    - Class: 114
+      Script: {instanceID: 20110}
+    - Class: 114
+      Script: {instanceID: 20648}
+    - Class: 114
+      Script: {instanceID: 20796}
+    - Class: 114
+      Script: {instanceID: 21112}
+    - Class: 114
+      Script: {instanceID: 206298}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: 33c55096064b86b06b0b504f00cc6515
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: AngleRotate
   - hash:
       serializedVersion: 2
       Hash: 55060a7bf226ac385ce19ebd450f199f
@@ -394,12 +465,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnBecameVisibleMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: cd53d709b8c741f63c01913fa0c5302d
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: warningScript
   - hash:
       serializedVersion: 2
       Hash: e987953190eb4c12cf19df790566dc2c
@@ -1188,6 +1253,12 @@ ScriptsOnlyBuild:
     className: VertexColorCycler
   - hash:
       serializedVersion: 2
+      Hash: 8d7273fb1b07a2014e20949156174ae6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DoStandart
+  - hash:
+      serializedVersion: 2
       Hash: 9fb1c3ab48b256d508ecddd967f98652
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -1266,6 +1337,18 @@ ScriptsOnlyBuild:
     className: sliderAndInput
   - hash:
       serializedVersion: 2
+      Hash: 33c55096064b86b06b0b504f00cc6515
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: AngleRotate
+  - hash:
+      serializedVersion: 2
+      Hash: cd53d709b8c741f63c01913fa0c5302d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: warningScript
+  - hash:
+      serializedVersion: 2
       Hash: 4166580c620718548959a77fa7b43fc1
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -1314,12 +1397,6 @@ ScriptsOnlyBuild:
     className: TMP_FrameRateCounter
   - hash:
       serializedVersion: 2
-      Hash: b9a9c072b7cd964e4f665faaa41056c0
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: NumberAroundCircle
-  - hash:
-      serializedVersion: 2
       Hash: 35e0b31791c377513b6fc7b9568c50cd
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -1354,6 +1431,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ChangeOriental
+  - hash:
+      serializedVersion: 2
+      Hash: d298687464e497d52e97f19d062323bb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: exitAndRetry
   - hash:
       serializedVersion: 2
       Hash: 502a0d788634601faaefeacfda55e23a
@@ -1446,11 +1529,18 @@ ScriptsOnlyBuild:
     className: FCP_ExampleScript
   - hash:
       serializedVersion: 2
-      Hash: 8d7273fb1b07a2014e20949156174ae6
+      Hash: 011b0ad323e8f3e2eb2e68d7e8f2e27a
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: DoStandart
+    className: backgroundBar
+  - hash:
+      serializedVersion: 2
+      Hash: ae75d54c4b43a5b8fb634ea6d8a79f47
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: welcome
   platform: 19
   scenePathNames:
+  - Assets/Scenes/Welcome.unity
   - Assets/Scenes/SampleScene.unity
   playerPath: C:/Users/vislo/unity projects/LAHUD/LADisplay.exe

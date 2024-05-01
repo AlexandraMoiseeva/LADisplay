@@ -51,13 +51,26 @@ public class HeightScroll : MonoBehaviour
 
     public void Init()
     {
-        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-angleAttackInit) / System.MathF.PI * 180.0f);
-        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-angleSideInit) / System.MathF.PI * 180.0f);
-        targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-rollInit) / System.MathF.PI * 180.0f);
-        targetAeroHorCircle.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-rollInit) / System.MathF.PI * 180.0f);
-        targetDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-yawInit) / System.MathF.PI * 180.0f);
-        targetSideAttackDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-angleSideInit) / System.MathF.PI * 180.0f);
-        GameObject.Find("Pitch").transform.position += new Vector3(0, 165.0f / 90.0f * (-Data.pitch) / System.MathF.PI * 180.0f, 0);
+        targetAngleAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        targetSideAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        targetAngleAttack.transform.localPosition = new Vector3(0, 36.6f, 0);
+        targetSideAttack.transform.localPosition = new Vector3(0, 36.6f, 0);
+
+        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 90.0f);
+        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90.0f);
+
+        targetAeroHor.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        targetAeroHorCircle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        targetDegCircle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        targetSideAttackDegCircle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        targetAeroHor.transform.localPosition = new Vector3(0, 0, 0);
+        targetAeroHorCircle.transform.localPosition = new Vector3(0, 0, 0);
+        targetDegCircle.transform.localPosition = new Vector3(0, 0, 0);
+        targetSideAttackDegCircle.transform.localPosition = new Vector3(0, 0, 0);
+
+        GameObject.Find("Pitch").transform.localPosition = new Vector3(0, 0, 0);
 
         GameObject.Find("HeightBar/Mark/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
 
@@ -108,14 +121,14 @@ public class HeightScroll : MonoBehaviour
 
         targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-Data.angleAttack + angleAttackInit) / System.MathF.PI * 180.0f);
         targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
-        targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-Data.roll + rollInit) / System.MathF.PI * 180.0f);
+        //targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-Data.roll + rollInit) / System.MathF.PI * 180.0f);
         targetAeroHorCircle.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-Data.roll + rollInit) / System.MathF.PI * 180.0f);
         targetDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.yaw + yawInit) / System.MathF.PI * 180.0f);
         targetSideAttackDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
 
         if (Data.velocityX != 0 & Data.velocityY != 0)
         {
-            GameObject.Find("Pitch").transform.position += new Vector3(0, 165.0f / 90.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+            GameObject.Find("Pitch").transform.position += new Vector3(0, 645.0f / 360.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
             //GameObject.Find("PitchScale").transform.position += new Vector3(0, 165.0f / 90.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
         }
 

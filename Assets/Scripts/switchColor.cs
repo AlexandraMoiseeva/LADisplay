@@ -28,18 +28,16 @@ public class switchColor : MonoBehaviour
             if (System.MathF.Abs(date) > 7)
                 angleAttack.GetComponent<Image>().color = new Color(Data.ourYellow.r, Data.ourYellow.g, Data.ourYellow.b, (float)Data.alpha / 255);
             else
-                if (System.MathF.Abs(date) > 0)
-                    angleAttack.GetComponent<Image>().color = new Color(Data.ourGreen.r, Data.ourGreen.g, Data.ourGreen.b, (float)Data.alpha / 2 / 255);
+                angleAttack.GetComponent<Image>().color = new Color(Data.ourGreen.r, Data.ourGreen.g, Data.ourGreen.b, (float)Data.alpha / 2 / 255);
 
         float date1 = System.MathF.Abs(Data.sidingAttack / System.MathF.PI * 180.0f);
         if (System.MathF.Abs(date1) > 10)
             sidingAttack.GetComponent<Image>().color = new Color(Data.ourRed.r, Data.ourRed.g, Data.ourRed.b, 255.0f / 255);
         else
-            if (System.MathF.Abs(date1) > 7)
+            if (System.MathF.Abs(date1) > 5)
                 sidingAttack.GetComponent<Image>().color = new Color(Data.ourYellow.r, Data.ourYellow.g, Data.ourYellow.b, (float)Data.alpha / 255);
             else
-                if (System.MathF.Abs(date1) > 0)
-                    sidingAttack.GetComponent<Image>().color = new Color(Data.ourGreen.r, Data.ourGreen.g, Data.ourGreen.b, (float)Data.alpha / 2 / 255);
+                sidingAttack.GetComponent<Image>().color = new Color(Data.ourGreen.r, Data.ourGreen.g, Data.ourGreen.b, (float)Data.alpha / 2 / 255);
 
         float date2 = Data.positionY;
         if (date2 < 0)
@@ -57,8 +55,7 @@ public class switchColor : MonoBehaviour
             if (System.MathF.Abs(date3) > 12)
                 heightVelocity.GetComponent<Image>().color = new Color(Data.ourOrange.r, Data.ourOrange.g, Data.ourOrange.b, (float)Data.alpha / 255);
             else
-                if (System.MathF.Abs(date3) > 0)
-                    heightVelocity.GetComponent<Image>().color = new Color(Data.ourGreen.r, Data.ourGreen.g, Data.ourGreen.b, (float)Data.alpha / 255);
+                heightVelocity.GetComponent<Image>().color = new Color(Data.ourGreen.r, Data.ourGreen.g, Data.ourGreen.b, (float)Data.alpha / 255);
 
         float date4 = System.MathF.Sqrt(Data.velocityX * Data.velocityX +
             Data.velocityY * Data.velocityY + Data.velocityZ * Data.velocityZ);

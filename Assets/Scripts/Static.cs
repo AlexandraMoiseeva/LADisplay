@@ -120,22 +120,5 @@ public static class Data
         yaw = 0;
         pitch = 0;
     }
-    public static void Drop()
-    {
-        PlayerPrefs.DeleteKey("positionX");
-        PlayerPrefs.DeleteKey("positionY");
-        PlayerPrefs.DeleteKey("positionZ");
-
-        PlayerPrefs.DeleteKey("velocityX");
-        PlayerPrefs.DeleteKey("velocityY");
-        PlayerPrefs.DeleteKey("velocityZ");
-
-        PlayerPrefs.DeleteKey("angleAttack");
-        PlayerPrefs.DeleteKey("sidingAttack");
-
-        PlayerPrefs.DeleteKey("roll");
-        PlayerPrefs.DeleteKey("yaw");
-        PlayerPrefs.DeleteKey("pitch");
-    }
 
 }

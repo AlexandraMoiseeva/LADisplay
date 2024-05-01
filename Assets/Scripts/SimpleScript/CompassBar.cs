@@ -14,6 +14,7 @@ public class CompassBar : MonoBehaviour
     void Update()
     {
         //compassImage.uvRect = new Rect(camera.localEulerAngles.y / 360f, 0f, 1f, 1f);
-        compassImage.uvRect = new Rect(0f, ((Data.pitch) / System.MathF.PI * 180.0f)/360f , 1f, 1f);
+        compassImage.uvRect = new Rect(0f, ((Data.pitch) / System.MathF.PI * 180.0f) / 360f, 1f, 1f);
     }
 }
+
