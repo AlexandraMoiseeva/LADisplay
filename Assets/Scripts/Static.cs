@@ -17,6 +17,8 @@ public static class Data
 
     static public int alpha = 150;
 
+    static public int rotate = 0;
+
     static public float greenR;
     static public float greenG;
     static public float greenB;
@@ -103,24 +105,20 @@ public static class Data
         ourOrange = new Color(orangeR, orangeG, orangeB);
         ourRed = new Color(redR, redG, redB);
 
-        /*
-        positionX = PlayerPrefs.GetFloat("positionX", 0);
-        positionY = PlayerPrefs.GetFloat("positionY", 0);
-        positionZ = PlayerPrefs.GetFloat("positionZ", 0);
+        positionX = 0;
+        positionY = 0;
+        positionZ = 0;
 
-        velocityX = PlayerPrefs.GetFloat("velocityX", 0);
-        velocityY = PlayerPrefs.GetFloat("velocityY", 0);
-        velocityZ = PlayerPrefs.GetFloat("velocityZ", 0);
+        velocityX = 0;
+        velocityY = 0;
+        velocityZ = 0;
 
-        angleAttack = PlayerPrefs.GetFloat("angleAttack", 0);
-        sidingAttack = PlayerPrefs.GetFloat("sidingAttack", 0);
+        angleAttack = 0;
+        sidingAttack = 0;
 
-        roll = PlayerPrefs.GetFloat("roll", 0);
-        yaw = PlayerPrefs.GetFloat("yaw", 0);
-        pitch = PlayerPrefs.GetFloat("pitch", 0);
-        */
-
-
+        roll = 0;
+        yaw = 0;
+        pitch = 0;
     }
     public static void Drop()
     {

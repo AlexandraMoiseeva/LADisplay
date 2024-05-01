@@ -49,6 +49,33 @@ public class HeightScroll : MonoBehaviour
         targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90.0f);
     }
 
+    public void Init()
+    {
+        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-angleAttackInit) / System.MathF.PI * 180.0f);
+        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-angleSideInit) / System.MathF.PI * 180.0f);
+        targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-rollInit) / System.MathF.PI * 180.0f);
+        targetAeroHorCircle.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-rollInit) / System.MathF.PI * 180.0f);
+        targetDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-yawInit) / System.MathF.PI * 180.0f);
+        targetSideAttackDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-angleSideInit) / System.MathF.PI * 180.0f);
+        GameObject.Find("Pitch").transform.position += new Vector3(0, 165.0f / 90.0f * (-Data.pitch) / System.MathF.PI * 180.0f, 0);
+
+        GameObject.Find("HeightBar/Mark/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+
+        GameObject.Find("ValueBar/Mark/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+
+        rollButton.GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+        pitchButtton.GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+
+        GameObject.Find("Text (TMP) siding").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+        GameObject.Find("Text (TMP) attack").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+
+        angleAttackInit = 0.0f;
+        angleSideInit = 0.0f;
+        rollInit = 0.0f;
+        pitchInit = 0.0f;
+        yawInit = 0.0f;
+
+    }
     // Update is called once per frame
     void Update()
     {

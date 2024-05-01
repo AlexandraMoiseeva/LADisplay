@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class VelocityVisibleTriangle : MonoBehaviour
@@ -20,6 +21,20 @@ public class VelocityVisibleTriangle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        triangles[0].GetComponent<Image>().color = Data.ourRed;
+        triangles[1].GetComponent<Image>().color = Data.ourOrange;
+        triangles[2].GetComponent<Image>().color = Data.ourYellow;
+        triangles[3].GetComponent<Image>().color = Data.ourYellow;
+        triangles[4].GetComponent<Image>().color = Data.ourGreen;
+        triangles[5].GetComponent<Image>().color = Data.ourGreen;
+
+        triangles[12].GetComponent<Image>().color = Data.ourRed;
+        triangles[11].GetComponent<Image>().color = Data.ourOrange;
+        triangles[10].GetComponent<Image>().color = Data.ourYellow;
+        triangles[9].GetComponent<Image>().color = Data.ourYellow;
+        triangles[8].GetComponent<Image>().color = Data.ourGreen;
+        triangles[7].GetComponent<Image>().color = Data.ourGreen;
+
         velocityV = (int)Data.velocityY;
         velocity = 0;
 
