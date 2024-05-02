@@ -51,11 +51,11 @@ public class HeightScroll : MonoBehaviour
 
     public void Init()
     {
-        targetAngleAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        targetSideAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-
         targetAngleAttack.transform.localPosition = new Vector3(0, 36.6f, 0);
         targetSideAttack.transform.localPosition = new Vector3(0, 36.6f, 0);
+
+        targetAngleAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        targetSideAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 90.0f);
         targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90.0f);
