@@ -35,6 +35,7 @@ public class HeightScroll : MonoBehaviour
     private float pitchInit;
     private float yawInit;
 
+    public Toggle t;
     void Start()
     {
         Data.Load();
@@ -54,11 +55,19 @@ public class HeightScroll : MonoBehaviour
         targetAngleAttack.transform.localPosition = new Vector3(0, 36.6f, 0);
         targetSideAttack.transform.localPosition = new Vector3(0, 36.6f, 0);
 
-        targetAngleAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        targetSideAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        if (t.isOn)
+        {
+            targetSideAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, -90.0f);
+        }
+        else
+        {
+            targetSideAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90.0f);
+        }
+        targetAngleAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 90.0f);
-        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90.0f);
 
         targetAeroHor.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         targetAeroHorCircle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -68,7 +77,7 @@ public class HeightScroll : MonoBehaviour
         targetAeroHor.transform.localPosition = new Vector3(0, 0, 0);
         targetAeroHorCircle.transform.localPosition = new Vector3(0, 0, 0);
         targetDegCircle.transform.localPosition = new Vector3(0, 0, 0);
-        targetSideAttackDegCircle.transform.localPosition = new Vector3(0, 0, 0);
+        targetSideAttackDegCircle.transform.localPosition = new Vector3(0, 68.01f, 0);
 
         GameObject.Find("Pitch").transform.localPosition = new Vector3(0, 0, 0);
 
