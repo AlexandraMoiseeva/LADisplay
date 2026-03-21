@@ -17,10 +17,16 @@ public class HeightScroll : MonoBehaviour
 
     public GameObject centerAeroHor;
     public GameObject targetAeroHor;
+    public GameObject targetAeroHorCircle;
 
     public GameObject centerDegCircle;
     public GameObject targetDegCircle;
     public GameObject targetSideAttackDegCircle;
+
+    public GameObject rollButton;
+    public GameObject pitchButtton;
+
+    //public GameObject pitchScale;
 
     private float angleAttackInit;
     private float angleSideInit;
@@ -29,18 +35,69 @@ public class HeightScroll : MonoBehaviour
     private float pitchInit;
     private float yawInit;
 
+    public Toggle t;
     void Start()
     {
-        angleAttackInit = 0;
-        angleSideInit = 0;
-        rollInit = 0;
-        pitchInit = 0;
-        yawInit = 0;
+        Data.Load();
 
-        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 90);
-        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90);
+        angleAttackInit = 0.0f;
+        angleSideInit = 0.0f;
+        rollInit = 0.0f;
+        pitchInit = 0.0f;
+        yawInit = 0.0f;
+
+        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 90.0f);
+        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90.0f);
     }
 
+    public void Init()
+    {
+        targetAngleAttack.transform.localPosition = new Vector3(0, 36.6f, 0);
+        targetSideAttack.transform.localPosition = new Vector3(0, 36.6f, 0);
+
+        if (t.isOn)
+        {
+            targetSideAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, -90.0f);
+        }
+        else
+        {
+            targetSideAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 90.0f);
+        }
+        targetAngleAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 90.0f);
+
+        targetAeroHor.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        targetAeroHorCircle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        targetDegCircle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        targetSideAttackDegCircle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        targetAeroHor.transform.localPosition = new Vector3(0, 0, 0);
+        targetAeroHorCircle.transform.localPosition = new Vector3(0, 0, 0);
+        targetDegCircle.transform.localPosition = new Vector3(0, 0, 0);
+        targetSideAttackDegCircle.transform.localPosition = new Vector3(0, 68.01f, 0);
+
+        GameObject.Find("Pitch").transform.localPosition = new Vector3(0, 0, 0);
+
+        GameObject.Find("HeightBar/Mark/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+
+        GameObject.Find("ValueBar/Mark/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+
+        rollButton.GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+        pitchButtton.GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+
+        GameObject.Find("Text (TMP) siding").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+        GameObject.Find("Text (TMP) attack").GetComponent<TMPro.TextMeshProUGUI>().text = "None";
+
+        angleAttackInit = 0.0f;
+        angleSideInit = 0.0f;
+        rollInit = 0.0f;
+        pitchInit = 0.0f;
+        yawInit = 0.0f;
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -71,14 +128,18 @@ public class HeightScroll : MonoBehaviour
 
         GameObject.Find("ValueBar/Mark/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(velocity, 2).ToString();
 
-        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 360 / 40 * (-Data.angleAttack + angleAttackInit) / System.MathF.PI * 180.0f);
-        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 360 / 40 * (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
-        targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (Data.roll - rollInit) / System.MathF.PI * 180.0f);
+        targetAngleAttack.transform.RotateAround(centerAngleAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-Data.angleAttack + angleAttackInit) / System.MathF.PI * 180.0f);
+        targetSideAttack.transform.RotateAround(centerSideAttack.transform.position, Vector3.back, 360.0f / 40.0f * (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
+        //targetAeroHor.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-Data.roll + rollInit) / System.MathF.PI * 180.0f);
+        targetAeroHorCircle.transform.RotateAround(centerAeroHor.transform.position, Vector3.back, (-Data.roll + rollInit) / System.MathF.PI * 180.0f);
         targetDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.yaw + yawInit) / System.MathF.PI * 180.0f);
         targetSideAttackDegCircle.transform.RotateAround(centerDegCircle.transform.position, Vector3.back, (-Data.sidingAttack + angleSideInit) / System.MathF.PI * 180.0f);
 
         if (Data.velocityX != 0 & Data.velocityY != 0)
-            GameObject.Find("Pitch").transform.position += new Vector3(0, 165 / 40 * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+        {
+            GameObject.Find("Pitch").transform.position += new Vector3(0, 645.0f / 360.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+            //GameObject.Find("PitchScale").transform.position += new Vector3(0, 165.0f / 90.0f * (pitchInit - Data.pitch) / System.MathF.PI * 180.0f, 0);
+        }
 
         angleAttackInit = Data.angleAttack;
         angleSideInit = Data.sidingAttack;
@@ -86,7 +147,10 @@ public class HeightScroll : MonoBehaviour
         pitchInit = Data.pitch;
         yawInit = Data.yaw;
 
-        GameObject.Find("SidingAtack/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.sidingAttack / System.MathF.PI * 180.0f, 2).ToString();
-        GameObject.Find("AangleAtack/Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.angleAttack / System.MathF.PI * 180.0f, 2).ToString();
+        rollButton.GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round((rollInit / System.MathF.PI * 180.0f), 2).ToString();
+        pitchButtton.GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round((pitchInit / System.MathF.PI * 180.0f), 2).ToString();
+
+        GameObject.Find("Text (TMP) siding").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.sidingAttack / System.MathF.PI * 180.0f, 2).ToString();
+        GameObject.Find("Text (TMP) attack").GetComponent<TMPro.TextMeshProUGUI>().text = System.MathF.Round(Data.angleAttack / System.MathF.PI * 180.0f, 2).ToString();
     }
 }
